@@ -1,10 +1,12 @@
 const express = require("express");
+const morgan = require("morgan");
 const app = express();
 
 app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.use(express.static("public"));
+app.use(morgan("common"));
 
 app.get("/", (req, res) => {
   res.redirect("/english");
